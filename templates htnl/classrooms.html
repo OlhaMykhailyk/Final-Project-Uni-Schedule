@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Classrooms</title>
+
+    <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    rel="stylesheet">
+
+
+</head>
+
+<body>
+
+<div class="container mt-5">
+
+    <h1 class="mb-4">
+        Classrooms Page
+    </h1>
+
+    <a href="/" class="btn btn-secondary mb-3">
+        Back Home
+    </a>
+
+    <table class="table table-bordered table-hover">
+
+        <thead class="table-dark">
+
+            <tr>
+                <th>Room Number</th>
+                <th>Capacity</th>
+                <th>Actions</th>
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            {% for classroom in classrooms %}
+
+            <tr>
+
+                <td>{{ classroom.room_number }}</td>
+
+                <td>{{ classroom.capacity }}</td>
+
+                <td>
+
+<a
+href="/edit_classroom/{{ classroom.id }}"
+class="btn btn-warning btn-sm">
+
+    Edit
+
+</a>
+
+<a
+href="/delete_classroom/{{ classroom.id }}"
+class="btn btn-danger btn-sm">
+
+    Delete
+
+</a>
+
+</td>
+
+            </tr>
+
+            {% endfor %}
+
+        </tbody>
+
+    </table>
+
+<a href="/add_classroom" class="btn btn-success mb-3">
+    Add Classroom
+</a>
+
+    <a href="/import_classrooms" class="btn btn-success mb-3">
+        Import Classrooms Excel
+    </a>
+</div>
+
+</body>
+
+</html>

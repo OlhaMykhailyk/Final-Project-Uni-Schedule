@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Teachers</title>
+
+    <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    rel="stylesheet">
+
+
+</head>
+
+<body>
+
+<div class="container mt-5">
+
+    <h1 class="mb-4">
+        Teachers Page
+    </h1>
+
+    <a href="/" class="btn btn-secondary mb-3">
+        Back Home
+    </a>
+
+    <table class="table table-bordered table-hover">
+
+        <thead class="table-dark">
+
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Actions</th>
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            {% for teacher in teachers %}
+
+            <tr>
+
+                <td>{{ teacher.full_name }}</td>
+
+                <td>{{ teacher.email }}</td>
+
+                <td>
+
+<a
+href="/edit_teacher/{{ teacher.id }}"
+class="btn btn-warning btn-sm">
+
+    Edit
+
+</a>
+
+<a
+href="/delete_teacher/{{ teacher.id }}"
+class="btn btn-danger btn-sm">
+
+    Delete
+
+</a>
+
+</td>
+
+            </tr>
+
+            {% endfor %}
+
+        </tbody>
+
+    </table>
+
+<a href="/add_teacher" class="btn btn-success mb-3">
+    Add Teacher
+</a>
+    <a href="/import_teachers" class="btn btn-success mb-3">
+        Import Teachers Excel
+    </a>
+</div>
+
+</body>
+
+</html>
